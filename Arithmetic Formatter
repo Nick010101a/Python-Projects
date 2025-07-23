@@ -24,14 +24,16 @@ def arithmetic_arranger(problems, show_answers=False):
 
         width = max(len(left), len(right)) + 2
 
-        first_line.append(left.rjust(width))
+        #Organize all elements of problems into correct orientation 
+        first_line.append(left.rjust(width)) 
         second_line.append(operator + right.rjust(width - 1))
-        
         dash_line.append('-' * width)
-    
+
+        #Final format of problems
         arranged_problems = (
         '    '.join(first_line) + '\n' + '    '.join(second_line) + '\n' + '    '.join(dash_line))
 
+        #Answer logic if requested
         if show_answers:
             if operator == '+':
                 answer = int(left) + int(right)
@@ -39,6 +41,7 @@ def arithmetic_arranger(problems, show_answers=False):
                 answer = int(left) - int(right)
             answer_line.append(str(answer).rjust(width))
 
+        #Ammend format to include answers if requested
         if show_answers:
             arranged_problems += '\n' +    '    '.join(answer_line)
                 
